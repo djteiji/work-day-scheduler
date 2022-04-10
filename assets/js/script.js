@@ -1,3 +1,6 @@
+
+
+
 $("#currentDay").text(moment().format('dddd, MMMM D, YYYY'));
 
 var saveButton = $(".saveBtn")
@@ -23,8 +26,40 @@ var colorChange = function() {
     })
 };
 
-var storeEvent = function() {
-    
-}
 
+
+$(".saveBtn").on("click", function() {
+    var time = $(this).siblings(".hour").text();
+    var plan = $(this).siblings(".col-10").val();
+
+    localStorage.setItem(time, plan)
+});
+
+
+
+// $(".saveBtn").on("click", function() {
+
+//     var textEl = document.querySelector(".col-10");
+//     console.log(textEl.value);
+
+    
+
+//     localStorage.setItem("plan", textEl.value);
+//     console.log(localStorage);
+
+// });
+
+
+function loadTasks () {
+    
+    $(".hour").each(function() {
+        var thisHour = $(this).text();
+        var thisTask = localStorage.getItem(thisHour);
+
+        if(thisTask !== null) {
+            $(this).siblings(".col-10").val(thisTask);
+        }
+    });
+}
 colorChange();
+loadTasks();
