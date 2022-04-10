@@ -36,20 +36,6 @@ $(".saveBtn").on("click", function() {
 });
 
 
-
-// $(".saveBtn").on("click", function() {
-
-//     var textEl = document.querySelector(".col-10");
-//     console.log(textEl.value);
-
-    
-
-//     localStorage.setItem("plan", textEl.value);
-//     console.log(localStorage);
-
-// });
-
-
 function loadTasks () {
     
     $(".hour").each(function() {
